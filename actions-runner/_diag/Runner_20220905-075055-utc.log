@@ -112,3 +112,110 @@
 [2022-09-05 07:50:57Z INFO Terminal] WRITE LINE: Current runner version: '2.296.1'
 [2022-09-05 07:50:57Z INFO Terminal] WRITE LINE: 2022-09-05 07:50:57Z: Listening for Jobs
 [2022-09-05 07:50:57Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2022-09-05 08:05:39Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 08:05:39Z INFO MessageListener] Message '1' received from session '2d9e35d1-7943-4818-a2b3-4c1f61cc0e9a'.
+[2022-09-05 08:05:39Z INFO Runner] Received job message of length 21000 from service, with hash '3650c90746a0a273145a2a27bb3482e08297b473c9cf45896b55835eabd013e9'
+[2022-09-05 08:05:39Z INFO JobDispatcher] Job request 6 for plan 122176e0-df68-4a5e-b00a-9a2be6f59c03 job 7222584d-8208-5865-6f16-10afbb72b1da received.
+[2022-09-05 08:05:39Z INFO JobDispatcher] Pull OrchestrationId 122176e0-df68-4a5e-b00a-9a2be6f59c03.prepare.github_com from JWT claims
+[2022-09-05 08:05:39Z INFO Terminal] WRITE LINE: 2022-09-05 08:05:39Z: Running job: prepare (github.com)
+[2022-09-05 08:05:39Z INFO JobDispatcher] Start renew job request 6 for job 7222584d-8208-5865-6f16-10afbb72b1da.
+[2022-09-05 08:05:40Z INFO JobDispatcher] Successfully renew job request 6, job is valid till 09/05/2022 08:15:40
+[2022-09-05 08:05:40Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   File name: '/home/alex/gitops/2test2/actions-runner/bin/Runner.Worker'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 110 113'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-09-05 08:05:40Z INFO ProcessInvokerWrapper] Process started with process id 10058, waiting for process exit.
+[2022-09-05 08:05:40Z INFO JobDispatcher] Send job request message to worker for job 7222584d-8208-5865-6f16-10afbb72b1da.
+[2022-09-05 08:05:40Z INFO ProcessChannel] Sending message of length 21000, with hash '3650c90746a0a273145a2a27bb3482e08297b473c9cf45896b55835eabd013e9'
+[2022-09-05 08:05:40Z INFO JobNotification] Entering JobStarted Notification
+[2022-09-05 08:05:40Z INFO JobNotification] Entering StartMonitor
+[2022-09-05 08:05:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:05:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:05:57Z INFO ProcessInvokerWrapper] Finished process 10058 with exit code 100, and elapsed time 00:00:17.0564065.
+[2022-09-05 08:05:57Z INFO JobDispatcher] Worker finished for job 7222584d-8208-5865-6f16-10afbb72b1da. Code: 100
+[2022-09-05 08:05:57Z INFO JobDispatcher] finish job request for job 7222584d-8208-5865-6f16-10afbb72b1da with result: Succeeded
+[2022-09-05 08:05:57Z INFO Terminal] WRITE LINE: 2022-09-05 08:05:57Z: Job prepare (github.com) completed with result: Succeeded
+[2022-09-05 08:05:57Z INFO JobDispatcher] Stop renew job request for job 7222584d-8208-5865-6f16-10afbb72b1da.
+[2022-09-05 08:05:57Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 6.
+[2022-09-05 08:05:57Z INFO JobNotification] Entering JobCompleted Notification
+[2022-09-05 08:05:57Z INFO JobNotification] Entering EndMonitor
+[2022-09-05 08:06:00Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 08:06:00Z INFO MessageListener] Message '2' received from session '2d9e35d1-7943-4818-a2b3-4c1f61cc0e9a'.
+[2022-09-05 08:06:00Z INFO Runner] Received job message of length 21000 from service, with hash 'e6dd7250fce7dc120a8eaa20894bb972376a67ea690418d340abab01491fa150'
+[2022-09-05 08:06:00Z INFO JobDispatcher] Job request 7 for plan 122176e0-df68-4a5e-b00a-9a2be6f59c03 job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd received.
+[2022-09-05 08:06:00Z INFO JobDispatcher] Pull OrchestrationId 122176e0-df68-4a5e-b00a-9a2be6f59c03.prepare.google_com from JWT claims
+[2022-09-05 08:06:00Z INFO JobDispatcher] Job request 7222584d-8208-5865-6f16-10afbb72b1da processed succeed.
+[2022-09-05 08:06:00Z INFO Terminal] WRITE LINE: 2022-09-05 08:06:00Z: Running job: prepare (google.com)
+[2022-09-05 08:06:00Z INFO JobDispatcher] Start renew job request 7 for job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd.
+[2022-09-05 08:06:00Z INFO JobDispatcher] Successfully renew job request 7, job is valid till 09/05/2022 08:16:00
+[2022-09-05 08:06:00Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   File name: '/home/alex/gitops/2test2/actions-runner/bin/Runner.Worker'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 110 113'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-09-05 08:06:00Z INFO ProcessInvokerWrapper] Process started with process id 10544, waiting for process exit.
+[2022-09-05 08:06:00Z INFO JobDispatcher] Send job request message to worker for job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd.
+[2022-09-05 08:06:00Z INFO ProcessChannel] Sending message of length 21000, with hash 'e6dd7250fce7dc120a8eaa20894bb972376a67ea690418d340abab01491fa150'
+[2022-09-05 08:06:00Z INFO JobNotification] Entering JobStarted Notification
+[2022-09-05 08:06:00Z INFO JobNotification] Entering StartMonitor
+[2022-09-05 08:06:11Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:11Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:11Z INFO ProcessInvokerWrapper] Finished process 10544 with exit code 100, and elapsed time 00:00:10.9210311.
+[2022-09-05 08:06:11Z INFO JobDispatcher] Worker finished for job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd. Code: 100
+[2022-09-05 08:06:11Z INFO JobDispatcher] finish job request for job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd with result: Succeeded
+[2022-09-05 08:06:11Z INFO Terminal] WRITE LINE: 2022-09-05 08:06:11Z: Job prepare (google.com) completed with result: Succeeded
+[2022-09-05 08:06:11Z INFO JobDispatcher] Stop renew job request for job fdc14d1d-7ec8-5731-20d6-5d898d31e7cd.
+[2022-09-05 08:06:11Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 7.
+[2022-09-05 08:06:11Z INFO JobNotification] Entering JobCompleted Notification
+[2022-09-05 08:06:11Z INFO JobNotification] Entering EndMonitor
+[2022-09-05 08:06:12Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 08:06:12Z INFO MessageListener] Message '3' received from session '2d9e35d1-7943-4818-a2b3-4c1f61cc0e9a'.
+[2022-09-05 08:06:12Z INFO Runner] Received job message of length 21000 from service, with hash '99c3c518b3b006cc6fab23aaadf53ea6fb8aa408eec39ac988629c4288dc3f28'
+[2022-09-05 08:06:12Z INFO JobDispatcher] Job request 8 for plan 122176e0-df68-4a5e-b00a-9a2be6f59c03 job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68 received.
+[2022-09-05 08:06:12Z INFO JobDispatcher] Pull OrchestrationId 122176e0-df68-4a5e-b00a-9a2be6f59c03.prepare.onliner_by from JWT claims
+[2022-09-05 08:06:12Z INFO JobDispatcher] Job request fdc14d1d-7ec8-5731-20d6-5d898d31e7cd processed succeed.
+[2022-09-05 08:06:12Z INFO Terminal] WRITE LINE: 2022-09-05 08:06:12Z: Running job: prepare (onliner.by)
+[2022-09-05 08:06:12Z INFO JobDispatcher] Start renew job request 8 for job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68.
+[2022-09-05 08:06:12Z INFO JobDispatcher] Successfully renew job request 8, job is valid till 09/05/2022 08:16:12
+[2022-09-05 08:06:12Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   File name: '/home/alex/gitops/2test2/actions-runner/bin/Runner.Worker'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 110 113'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-09-05 08:06:12Z INFO ProcessInvokerWrapper] Process started with process id 10894, waiting for process exit.
+[2022-09-05 08:06:12Z INFO JobDispatcher] Send job request message to worker for job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68.
+[2022-09-05 08:06:12Z INFO ProcessChannel] Sending message of length 21000, with hash '99c3c518b3b006cc6fab23aaadf53ea6fb8aa408eec39ac988629c4288dc3f28'
+[2022-09-05 08:06:12Z INFO JobNotification] Entering JobStarted Notification
+[2022-09-05 08:06:12Z INFO JobNotification] Entering StartMonitor
+[2022-09-05 08:06:22Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:22Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:22Z INFO ProcessInvokerWrapper] Finished process 10894 with exit code 100, and elapsed time 00:00:09.6809209.
+[2022-09-05 08:06:22Z INFO JobDispatcher] Worker finished for job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68. Code: 100
+[2022-09-05 08:06:22Z INFO JobDispatcher] finish job request for job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68 with result: Succeeded
+[2022-09-05 08:06:22Z INFO Terminal] WRITE LINE: 2022-09-05 08:06:22Z: Job prepare (onliner.by) completed with result: Succeeded
+[2022-09-05 08:06:22Z INFO JobDispatcher] Stop renew job request for job f8a8e90f-3e79-5085-5cc2-4527b7ba7a68.
+[2022-09-05 08:06:22Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 8.
+[2022-09-05 08:06:22Z INFO JobNotification] Entering JobCompleted Notification
+[2022-09-05 08:06:22Z INFO JobNotification] Entering EndMonitor

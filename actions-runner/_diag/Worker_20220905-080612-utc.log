@@ -1,0 +1,1965 @@
+[2022-09-05 08:06:12Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-09-05 08:06:12Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:12Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:12Z INFO HostContext] Well known config file 'Credentials': '/home/alex/gitops/2test2/actions-runner/.credentials'
+[2022-09-05 08:06:12Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:12Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:12Z INFO HostContext] Well known config file 'Runner': '/home/alex/gitops/2test2/actions-runner/.runner'
+[2022-09-05 08:06:12Z INFO Worker] Version: 2.296.1
+[2022-09-05 08:06:12Z INFO Worker] Commit: 219852abcb49cb096136f5b0a807e512765647d5
+[2022-09-05 08:06:12Z INFO Worker] Culture: 
+[2022-09-05 08:06:12Z INFO Worker] UI Culture: 
+[2022-09-05 08:06:12Z INFO Worker] Waiting to receive the job message from the channel.
+[2022-09-05 08:06:12Z INFO ProcessChannel] Receiving message of length 21000, with hash '99c3c518b3b006cc6fab23aaadf53ea6fb8aa408eec39ac988629c4288dc3f28'
+[2022-09-05 08:06:12Z INFO Worker] Message received.
+[2022-09-05 08:06:13Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/matrix.yaml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 15,
+        "col": 15,
+        "lit": "Install netcat"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 16,
+              "col": 14,
+              "lit": "sudo apt update && sudo apt install -y netcat"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "fb3296dd-3756-5b94-2ec0-3f354bfaa8aa",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 17,
+              "col": 14,
+              "lit": "echo \"netcat has been installed\""
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "b9c72d9f-24bc-5055-de3d-8564a312279e",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 18,
+              "col": 14,
+              "expr": "format('nc -z -v -w2 {0} 443 > {1}.log 2>&1\nls -la\n', matrix.check-sites, matrix.check-sites)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "4654a512-cf24-51d8-f556-6c668c1bfde9",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/upload-artifact",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 21,
+        "col": 15,
+        "lit": "Upload report"
+      },
+      "contextName": "__actions_upload-artifact",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 24,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 11,
+              "lit": "path"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 24,
+              "col": 17,
+              "expr": "format('{0}.log', matrix.check-sites)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "8ec87821-b0a4-55c4-45e7-9b436611ff49",
+      "name": "__actions_upload-artifact"
+    }
+  ],
+  "variables": {
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.pipelineStartTime": {
+      "value": "2022-09-05 08:06:11+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "5"
+    },
+    "build.containerId": {
+      "value": "1290548"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/matrix.yaml"
+    },
+    "system.phaseDisplayName": {
+      "value": "prepare"
+    },
+    "system.phaseId": {
+      "value": "2fa1f09b-3704-5a74-0109-0f46ede9733e"
+    },
+    "system.phaseName": {
+      "value": "prepare"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "prepare.onliner_by"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "3"
+    },
+    "system.github.job": {
+      "value": "prepare"
+    },
+    "system.jobDisplayName": {
+      "value": "prepare (onliner.by)"
+    },
+    "system.jobId": {
+      "value": "f8a8e90f-3e79-5085-5cc2-4527b7ba7a68"
+    },
+    "system.jobName": {
+      "value": "onliner_by"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"Pages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 26,
+    "planId": "122176e0-df68-4a5e-b00a-9a2be6f59c03",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/5",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "2test2"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "amuzhichenko"
+    }
+  },
+  "timeline": {
+    "id": "122176e0-df68-4a5e-b00a-9a2be6f59c03",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "f8a8e90f-3e79-5085-5cc2-4527b7ba7a68",
+  "jobDisplayName": "prepare (onliner.by)",
+  "jobName": "onliner_by",
+  "requestId": 8,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "a6c4dc71-f917-4a24-ae28-f29771447f5b",
+          "ServerName": "wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/122176e0-df68-4a5e-b00a-9a2be6f59c03/timelines/122176e0-df68-4a5e-b00a-9a2be6f59c03/records/f8a8e90f-3e79-5085-5cc2-4527b7ba7a68/feedstream?api-version=6.0-preview"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+        },
+        {
+          "k": "repository",
+          "v": "amuzhichenko/2test2"
+        },
+        {
+          "k": "repository_owner",
+          "v": "amuzhichenko"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "61495795"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/amuzhichenko/2test2.git"
+        },
+        {
+          "k": "run_id",
+          "v": "2991652047"
+        },
+        {
+          "k": "run_number",
+          "v": "2"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repository_id",
+          "v": "532567042"
+        },
+        {
+          "k": "actor_id",
+          "v": "61495795"
+        },
+        {
+          "k": "actor",
+          "v": "amuzhichenko"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "amuzhichenko"
+        },
+        {
+          "k": "workflow",
+          "v": "Check remote hosts and push reports"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "99abd270d4102f00fa1a95de61e486eb0e883685"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "muzhichenkoalex@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Alex M"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "muzhichenkoalex@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Alex M"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+                        },
+                        {
+                          "k": "message",
+                          "v": "add self-hosted runner"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2022-09-05T08:02:41Z"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "742dd1ed798e0532d0d075ce0cd04ffe2eef39bb"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/amuzhichenko/2test2/commit/d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/amuzhichenko/2test2/compare/99abd270d410...d7b2c8cc2962"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "muzhichenkoalex@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Alex M"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "muzhichenkoalex@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Alex M"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+                    },
+                    {
+                      "k": "message",
+                      "v": "add self-hosted runner"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2022-09-05T08:02:41Z"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "742dd1ed798e0532d0d075ce0cd04ffe2eef39bb"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/amuzhichenko/2test2/commit/d7b2c8cc29623ed0b0481f6fbcbe494ab30f6433"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "61495795+amuzhichenko@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "amuzhichenko"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/amuzhichenko/2test2.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1662302395.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "amuzhichenko/2test2"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/amuzhichenko/2test2.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/amuzhichenko/2test2"
+                    },
+                    {
+                      "k": "id",
+                      "v": 532567042.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": null
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "2test2"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOH75UAg"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/61495795?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "61495795+amuzhichenko@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/amuzhichenko/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/amuzhichenko/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/amuzhichenko/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/amuzhichenko/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/amuzhichenko"
+                          },
+                          {
+                            "k": "id",
+                            "v": 61495795.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "amuzhichenko"
+                          },
+                          {
+                            "k": "name",
+                            "v": "amuzhichenko"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjYxNDk1Nzk1"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/amuzhichenko/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/amuzhichenko/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/amuzhichenko/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/amuzhichenko/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/amuzhichenko/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/amuzhichenko"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1662365132.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 2.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:amuzhichenko/2test2.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/amuzhichenko/2test2"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/amuzhichenko/2test2/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2022-09-04T14:39:55Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/amuzhichenko/2test2"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/61495795?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/amuzhichenko/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/amuzhichenko/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/amuzhichenko/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/amuzhichenko/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/amuzhichenko"
+                    },
+                    {
+                      "k": "id",
+                      "v": 61495795.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "amuzhichenko"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjYxNDk1Nzk1"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/amuzhichenko/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/amuzhichenko/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/amuzhichenko/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/amuzhichenko/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/amuzhichenko/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/amuzhichenko"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "inputs": {
+      "t": 2
+    },
+    "matrix": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check-sites",
+          "v": "onliner.by"
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 3.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 3.0
+        }
+      ]
+    }
+  }
+}
+[2022-09-05 08:06:13Z INFO JobRunner] Job ID f8a8e90f-3e79-5085-5cc2-4527b7ba7a68
+[2022-09-05 08:06:13Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s/
+[2022-09-05 08:06:13Z INFO ConfigurationStore] currentAssemblyLocation: /home/alex/gitops/2test2/actions-runner/bin/Runner.Worker.dll
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] binPath: /home/alex/gitops/2test2/actions-runner/bin
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] RootFolder: /home/alex/gitops/2test2/actions-runner
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known config file 'Runner': '/home/alex/gitops/2test2/actions-runner/.runner'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] ConfigFilePath: /home/alex/gitops/2test2/actions-runner/.runner
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known config file 'Credentials': '/home/alex/gitops/2test2/actions-runner/.credentials'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] CredFilePath: /home/alex/gitops/2test2/actions-runner/.credentials
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known config file 'MigratedCredentials': '/home/alex/gitops/2test2/actions-runner/.credentials_migrated'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] MigratedCredFilePath: /home/alex/gitops/2test2/actions-runner/.credentials_migrated
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known config file 'Service': '/home/alex/gitops/2test2/actions-runner/.service'
+[2022-09-05 08:06:13Z INFO ConfigurationStore] ServiceConfigFilePath: /home/alex/gitops/2test2/actions-runner/.service
+[2022-09-05 08:06:13Z INFO ConfigurationStore] Read setting file: 284 chars
+[2022-09-05 08:06:13Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-09-05 08:06:13Z INFO Worker] Listening for cancel message from the channel.
+[2022-09-05 08:06:13Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2022-09-05 08:06:13Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-09-05 08:06:13Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/122176e0-df68-4a5e-b00a-9a2be6f59c03/timelines/122176e0-df68-4a5e-b00a-9a2be6f59c03/records/f8a8e90f-3e79-5085-5cc2-4527b7ba7a68/feedstream?api-version=6.0-preview
+[2022-09-05 08:06:13Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2022-09-05 08:06:13Z INFO JobServerQueue] Start process web console line queue.
+[2022-09-05 08:06:13Z INFO JobServerQueue] Start process file upload queue.
+[2022-09-05 08:06:13Z INFO JobServerQueue] Start process timeline update queue.
+[2022-09-05 08:06:13Z INFO ExecutionContext] Initialize GitHub context
+[2022-09-05 08:06:13Z INFO ExecutionContext] Initialize Env context
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:13Z INFO JobRunner] Starting the job execution context.
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:13Z INFO JobRunner] Validating directory permissions for: '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Tools': '/home/alex/gitops/2test2/actions-runner/_work/_tool'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:13Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:13Z INFO JobRunner] Getting job extension.
+[2022-09-05 08:06:13Z INFO JobRunner] Initialize job. Getting all job steps.
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known config file 'Credentials': '/home/alex/gitops/2test2/actions-runner/.credentials'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known config file 'SetupInfo': '/home/alex/gitops/2test2/actions-runner/.setup_info'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO PipelineDirectoryManager] Loading tracking config if exists: /home/alex/gitops/2test2/actions-runner/_work/_PipelineMapping/amuzhichenko/2test2/PipelineFolder.json
+[2022-09-05 08:06:14Z INFO PipelineDirectoryManager] Updating job run properties.
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO JobExtension] Downloading actions
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:14Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:14Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/upload-artifact/tarball/82c141cc518b40d92cc801eee768e7aafc9c2fa2' into /home/alex/gitops/2test2/actions-runner/_work/_actions/_temp_043989d5-999c-4871-987f-516cea18ecac/5ab09c8d-0e32-4194-b16b-9b157f4fe053.tar.gz.
+[2022-09-05 08:06:14Z INFO JobServer] Successfully started websocket client.
+[2022-09-05 08:06:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c5a63d6f-0b92-4407-8ffb-96c7ba2e52cf', success rate: 1/1.
+[2022-09-05 08:06:14Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2022-09-05 08:06:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c5a63d6f-0b92-4407-8ffb-96c7ba2e52cf', success rate: 1/1.
+[2022-09-05 08:06:15Z INFO ActionManager] Which: 'tar'
+[2022-09-05 08:06:15Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/alex/gitops/2test2/actions-runner/_work/_actions/_temp_043989d5-999c-4871-987f-516cea18ecac/5ab09c8d-0e32-4194-b16b-9b157f4fe053.tar.gz"'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/_work/_actions/_temp_043989d5-999c-4871-987f-516cea18ecac/_staging'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 10907.
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Process started with process id 10907, waiting for process exit.
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Finished process 10907 with exit code 0, and elapsed time 00:00:00.0277614.
+[2022-09-05 08:06:15Z INFO ActionManager] Finished getting action repository.
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:15Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:15Z INFO ActionManifestManager] Ignore action property author.
+[2022-09-05 08:06:15Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-09-05 08:06:15Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:15Z INFO ActionManager] Load action that reference repository from '/home/alex/gitops/2test2/actions-runner/_work/_actions/actions/upload-artifact/v2'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:15Z INFO ActionManifestManager] Ignore action property author.
+[2022-09-05 08:06:15Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-09-05 08:06:15Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-09-05 08:06:15Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-09-05 08:06:15Z INFO ActionManager] Action post node.js file: N/A.
+[2022-09-05 08:06:15Z INFO JobExtension] Adding .
+[2022-09-05 08:06:15Z INFO JobExtension] Adding .
+[2022-09-05 08:06:15Z INFO JobExtension] Adding .
+[2022-09-05 08:06:15Z INFO JobExtension] Adding .
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:15Z INFO JobExtension] Total accessible running process: 150.
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "c5a63d6f-0b92-4407-8ffb-96c7ba2e52cf",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2022-09-05T08:06:14.0269884Z",
+  "finishTime": "2022-09-05T08:06:15.4125778Z"
+}.
+[2022-09-05 08:06:15Z INFO JobRunner] Total job steps: 4.
+[2022-09-05 08:06:15Z INFO JobRunner] Run all job steps.
+[2022-09-05 08:06:15Z INFO StepsRunner] Processing step: DisplayName='Install netcat'
+[2022-09-05 08:06:15Z INFO StepsRunner] Evaluating: success()
+[2022-09-05 08:06:15Z INFO StepsRunner] Result: true
+[2022-09-05 08:06:15Z INFO StepsRunner] Starting the step.
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:15Z INFO ExecutionContext] Write event payload to /home/alex/gitops/2test2/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:15Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command error
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command group
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-09-05 08:06:15Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-09-05 08:06:15Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:15Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:15Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:15Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:15Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/bash'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Arguments: '-e /home/alex/gitops/2test2/actions-runner/_work/_temp/adf983b5-be6e-4aba-8dbe-d9ea633117e9.sh'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/_work/2test2/2test2'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 10910.
+[2022-09-05 08:06:15Z INFO ProcessInvokerWrapper] Process started with process id 10910, waiting for process exit.
+[2022-09-05 08:06:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:16Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-09-05 08:06:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] Finished process 10910 with exit code 0, and elapsed time 00:00:02.4927459.
+[2022-09-05 08:06:17Z INFO CreateStepSummaryCommand] Step Summary file (/home/alex/gitops/2test2/actions-runner/_work/_temp/_runner_file_commands/step_summary_2c3815cd-9612-4a2f-b73f-7cb6033f4619) is empty; skipping attachment upload
+[2022-09-05 08:06:17Z INFO StepsRunner] Step result: 
+[2022-09-05 08:06:17Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "fb3296dd-3756-5b94-2ec0-3f354bfaa8aa",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3,
+  "startTime": "2022-09-05T08:06:15.4295519Z",
+  "finishTime": "2022-09-05T08:06:17.9881055Z"
+}.
+[2022-09-05 08:06:17Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-09-05 08:06:17Z INFO StepsRunner] Current state: job state = ''
+[2022-09-05 08:06:17Z INFO StepsRunner] Processing step: DisplayName='Run echo "netcat has been installed"'
+[2022-09-05 08:06:17Z INFO StepsRunner] Evaluating: success()
+[2022-09-05 08:06:17Z INFO StepsRunner] Result: true
+[2022-09-05 08:06:17Z INFO StepsRunner] Starting the step.
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:17Z INFO ExecutionContext] Write event payload to /home/alex/gitops/2test2/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:17Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-09-05 08:06:17Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command error
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command group
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-09-05 08:06:17Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-09-05 08:06:17Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:17Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:17Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:17Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/bash'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Arguments: '-e /home/alex/gitops/2test2/actions-runner/_work/_temp/c9873ac1-5d03-4785-9b92-3352964eec13.sh'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/_work/2test2/2test2'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 11227.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] Process started with process id 11227, waiting for process exit.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:17Z INFO ProcessInvokerWrapper] Finished process 11227 with exit code 0, and elapsed time 00:00:00.0029857.
+[2022-09-05 08:06:17Z INFO CreateStepSummaryCommand] Step Summary file (/home/alex/gitops/2test2/actions-runner/_work/_temp/_runner_file_commands/step_summary_30f3de03-cabd-4d67-b7b0-be2db230ef3e) is empty; skipping attachment upload
+[2022-09-05 08:06:17Z INFO StepsRunner] Step result: 
+[2022-09-05 08:06:17Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "b9c72d9f-24bc-5055-de3d-8564a312279e",
+  "stepContextName": "__run_2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-09-05T08:06:17.9884814Z",
+  "finishTime": "2022-09-05T08:06:17.9991243Z"
+}.
+[2022-09-05 08:06:17Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-09-05 08:06:17Z INFO StepsRunner] Current state: job state = ''
+[2022-09-05 08:06:17Z INFO StepsRunner] Processing step: DisplayName='Run nc -z -v -w2 onliner.by 443 > onliner.by.log 2>&1'
+[2022-09-05 08:06:17Z INFO StepsRunner] Evaluating: success()
+[2022-09-05 08:06:17Z INFO StepsRunner] Result: true
+[2022-09-05 08:06:17Z INFO StepsRunner] Starting the step.
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:17Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:18Z INFO ExecutionContext] Write event payload to /home/alex/gitops/2test2/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-09-05 08:06:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command error
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command group
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-09-05 08:06:18Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:18Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:18Z INFO ScriptHandler] Which: 'bash'
+[2022-09-05 08:06:18Z INFO ScriptHandler] Location: '/usr/bin/bash'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/bash'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Arguments: '-e /home/alex/gitops/2test2/actions-runner/_work/_temp/812f99ef-dfae-4bf0-9a41-28df3d209520.sh'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/_work/2test2/2test2'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 11228.
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Process started with process id 11228, waiting for process exit.
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Finished process 11228 with exit code 0, and elapsed time 00:00:00.0171503.
+[2022-09-05 08:06:18Z INFO CreateStepSummaryCommand] Step Summary file (/home/alex/gitops/2test2/actions-runner/_work/_temp/_runner_file_commands/step_summary_1b8ed67a-ae3d-4954-8b75-fc679ca56440) is empty; skipping attachment upload
+[2022-09-05 08:06:18Z INFO StepsRunner] Step result: 
+[2022-09-05 08:06:18Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "4654a512-cf24-51d8-f556-6c668c1bfde9",
+  "stepContextName": "__run_3",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-09-05T08:06:17.9994281Z",
+  "finishTime": "2022-09-05T08:06:18.0325405Z"
+}.
+[2022-09-05 08:06:18Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-09-05 08:06:18Z INFO StepsRunner] Current state: job state = ''
+[2022-09-05 08:06:18Z INFO StepsRunner] Processing step: DisplayName='Upload report'
+[2022-09-05 08:06:18Z INFO StepsRunner] Evaluating: success()
+[2022-09-05 08:06:18Z INFO StepsRunner] Result: true
+[2022-09-05 08:06:18Z INFO StepsRunner] Starting the step.
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:18Z INFO ActionManager] Load action that reference repository from '/home/alex/gitops/2test2/actions-runner/_work/_actions/actions/upload-artifact/v2'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Actions': '/home/alex/gitops/2test2/actions-runner/_work/_actions'
+[2022-09-05 08:06:18Z INFO ActionManifestManager] Ignore action property author.
+[2022-09-05 08:06:18Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Upload a Build Artifact",
+  "description": "Upload a build artifact that can be used by subsequent workflow steps",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 5,
+          "col": 3,
+          "lit": "name"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 14,
+          "lit": "artifact"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 3,
+          "lit": "if-no-files-found"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 14,
+          "lit": "warn"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "retention-days"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-09-05 08:06:18Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-09-05 08:06:18Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-09-05 08:06:18Z INFO ActionManager] Action post node.js file: N/A.
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:18Z INFO ExecutionContext] Write event payload to /home/alex/gitops/2test2/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Work': '/home/alex/gitops/2test2/actions-runner/_work'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Temp': '/home/alex/gitops/2test2/actions-runner/_work/_temp'
+[2022-09-05 08:06:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-09-05 08:06:18Z INFO ActionManifestManager] Input 'name': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 7,
+  "col": 14,
+  "lit": "artifact"
+}
+[2022-09-05 08:06:18Z INFO ActionManifestManager] Input 'if-no-files-found': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 19,
+  "col": 14,
+  "lit": "warn"
+}
+[2022-09-05 08:06:18Z INFO ActionManifestManager] Input 'retention-days': default value evaluate result: ""
+[2022-09-05 08:06:18Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command error
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command group
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-09-05 08:06:18Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:18Z INFO HostContext] Well known directory 'Externals': '/home/alex/gitops/2test2/actions-runner/externals'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Starting process:
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   File name: '/home/alex/gitops/2test2/actions-runner/externals/node12/bin/node'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Arguments: '"/home/alex/gitops/2test2/actions-runner/_work/_actions/actions/upload-artifact/v2/dist/index.js"'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Working directory: '/home/alex/gitops/2test2/actions-runner/_work/2test2/2test2'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 11231.
+[2022-09-05 08:06:18Z INFO ProcessInvokerWrapper] Process started with process id 11231, waiting for process exit.
+[2022-09-05 08:06:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fb3296dd-3756-5b94-2ec0-3f354bfaa8aa', success rate: 1/1.
+[2022-09-05 08:06:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b9c72d9f-24bc-5055-de3d-8564a312279e', success rate: 1/1.
+[2022-09-05 08:06:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '4654a512-cf24-51d8-f556-6c668c1bfde9', success rate: 1/1.
+[2022-09-05 08:06:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ec87821-b0a4-55c4-45e7-9b436611ff49', success rate: 1/1.
+[2022-09-05 08:06:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ec87821-b0a4-55c4-45e7-9b436611ff49', success rate: 1/1.
+[2022-09-05 08:06:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-09-05 08:06:19Z INFO ProcessInvokerWrapper] Finished process 11231 with exit code 0, and elapsed time 00:00:01.1063692.
+[2022-09-05 08:06:19Z INFO CreateStepSummaryCommand] Step Summary file (/home/alex/gitops/2test2/actions-runner/_work/_temp/_runner_file_commands/step_summary_1aab98d4-a503-47df-8538-a2a96f9dcfaf) is empty; skipping attachment upload
+[2022-09-05 08:06:19Z INFO StepsRunner] Step result: 
+[2022-09-05 08:06:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/upload-artifact",
+  "ref": "v2",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "8ec87821-b0a4-55c4-45e7-9b436611ff49",
+  "stepContextName": "__actions_upload-artifact",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2022-09-05T08:06:18.0328425Z",
+  "finishTime": "2022-09-05T08:06:19.1595629Z"
+}.
+[2022-09-05 08:06:19Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-09-05 08:06:19Z INFO StepsRunner] Current state: job state = ''
+[2022-09-05 08:06:19Z INFO JobRunner] Finalize job.
+[2022-09-05 08:06:19Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:19Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:19Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:19Z INFO JobExtension] Initialize Env context
+[2022-09-05 08:06:19Z INFO JobExtension] Initialize steps context
+[2022-09-05 08:06:19Z INFO JobExtension] Total accessible running process: 150.
+[2022-09-05 08:06:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "53cb5c05-5b16-4b84-b65e-863887b5aa99",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-09-05T08:06:19.1842764Z",
+  "finishTime": "2022-09-05T08:06:19.224884Z"
+}.
+[2022-09-05 08:06:19Z INFO JobRunner] Job result after all job steps finish: Succeeded
+[2022-09-05 08:06:19Z INFO JobRunner] Completing the job execution context.
+[2022-09-05 08:06:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ec87821-b0a4-55c4-45e7-9b436611ff49', success rate: 1/1.
+[2022-09-05 08:06:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '53cb5c05-5b16-4b84-b65e-863887b5aa99', success rate: 1/1.
+[2022-09-05 08:06:19Z INFO JobRunner] Shutting down the job server queue.
+[2022-09-05 08:06:19Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2022-09-05 08:06:20Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2022-09-05 08:06:21Z INFO JobServerQueue] All queue process task stopped.
+[2022-09-05 08:06:21Z INFO JobServerQueue] Web console line queue drained.
+[2022-09-05 08:06:21Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2022-09-05 08:06:21Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2022-09-05 08:06:21Z INFO JobServerQueue] File upload queue drained.
+[2022-09-05 08:06:22Z INFO JobServerQueue] Timeline update queue drained.
+[2022-09-05 08:06:22Z INFO JobServerQueue] Disposing job server ...
+[2022-09-05 08:06:22Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2022-09-05 08:06:22Z INFO TempDirectoryManager] Cleaning runner temp folder: /home/alex/gitops/2test2/actions-runner/_work/_temp
+[2022-09-05 08:06:22Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 08:06:22Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 08:06:22Z INFO HostContext] Well known directory 'Diag': '/home/alex/gitops/2test2/actions-runner/_diag'
+[2022-09-05 08:06:22Z INFO HostContext] Well known config file 'Telemetry': '/home/alex/gitops/2test2/actions-runner/_diag/.telemetry'
+[2022-09-05 08:06:22Z INFO JobRunner] Raising job completed event
+[2022-09-05 08:06:22Z INFO Worker] Job completed.

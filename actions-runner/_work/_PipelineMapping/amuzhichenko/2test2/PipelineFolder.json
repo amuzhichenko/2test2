@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "amuzhichenko/2test2",
+  "pipelineDirectory": "2test2",
+  "workspaceDirectory": "2test2/2test2",
+  "repositories": {
+    "amuzhichenko/2test2": {
+      "repositoryPath": "2test2/2test2",
+      "lastRunOn": "09/05/2022 08:05:42 +00:00"
+    }
+  },
+  "lastRunOn": "09/05/2022 08:06:14 +00:00"
+}
