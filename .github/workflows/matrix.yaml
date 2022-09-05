@@ -7,7 +7,7 @@ on:
 
 jobs:
   prepare:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
           check-sites: [onliner.by, google.com, github.com]

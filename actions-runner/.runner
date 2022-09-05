@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "ubuntupr",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s",
+  "gitHubUrl": "https://github.com/amuzhichenko/2test2",
+  "workFolder": "_work"
+}

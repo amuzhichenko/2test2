@@ -1,0 +1,114 @@
+[2022-09-05 07:50:55Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'Credentials': '/home/alex/gitops/2test2/actions-runner/.credentials'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'Runner': '/home/alex/gitops/2test2/actions-runner/.runner'
+[2022-09-05 07:50:55Z INFO Listener] Runner is built for Linux (X64) - linux-x64.
+[2022-09-05 07:50:55Z INFO Listener] RuntimeInformation: Linux 5.4.0-125-generic #141-Ubuntu SMP Wed Aug 10 13:42:03 UTC 2022.
+[2022-09-05 07:50:55Z INFO Listener] Version: 2.296.1
+[2022-09-05 07:50:55Z INFO Listener] Commit: 219852abcb49cb096136f5b0a807e512765647d5
+[2022-09-05 07:50:55Z INFO Listener] Culture: 
+[2022-09-05 07:50:55Z INFO Listener] UI Culture: 
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO Listener] Validating directory permissions for: '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO CommandLineParser] Parse
+[2022-09-05 07:50:55Z INFO CommandLineParser] Parsing 1 args
+[2022-09-05 07:50:55Z INFO CommandLineParser] parsing argument
+[2022-09-05 07:50:55Z INFO CommandLineParser] HasArgs: False
+[2022-09-05 07:50:55Z INFO CommandLineParser] Adding Command: run
+[2022-09-05 07:50:55Z INFO Listener] Arguments parsed
+[2022-09-05 07:50:55Z INFO Runner] ExecuteCommand
+[2022-09-05 07:50:55Z INFO ConfigurationStore] currentAssemblyLocation: /home/alex/gitops/2test2/actions-runner/bin/Runner.Listener.dll
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] binPath: /home/alex/gitops/2test2/actions-runner/bin
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] RootFolder: /home/alex/gitops/2test2/actions-runner
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'Runner': '/home/alex/gitops/2test2/actions-runner/.runner'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] ConfigFilePath: /home/alex/gitops/2test2/actions-runner/.runner
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'Credentials': '/home/alex/gitops/2test2/actions-runner/.credentials'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] CredFilePath: /home/alex/gitops/2test2/actions-runner/.credentials
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'MigratedCredentials': '/home/alex/gitops/2test2/actions-runner/.credentials_migrated'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] MigratedCredFilePath: /home/alex/gitops/2test2/actions-runner/.credentials_migrated
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'Service': '/home/alex/gitops/2test2/actions-runner/.service'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] ServiceConfigFilePath: /home/alex/gitops/2test2/actions-runner/.service
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'help': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'version': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'commit': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'check': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Command 'configure': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Command 'remove': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Command 'warmup': 'False'
+[2022-09-05 07:50:55Z INFO ConfigurationManager] LoadSettings
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured()
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured: True
+[2022-09-05 07:50:55Z INFO ConfigurationManager] Is configured: True
+[2022-09-05 07:50:55Z INFO ConfigurationStore] Read setting file: 284 chars
+[2022-09-05 07:50:55Z INFO ConfigurationManager] Settings Loaded
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-09-05 07:50:55Z INFO CommandSettings] Command 'run': 'True'
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured()
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured: True
+[2022-09-05 07:50:55Z INFO ConfigurationManager] Is configured: True
+[2022-09-05 07:50:55Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2022-09-05 07:50:55Z INFO Runner] Set runner startup type - Manual
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'once': 'False'
+[2022-09-05 07:50:55Z INFO CommandSettings] Flag 'once': 'False'
+[2022-09-05 07:50:55Z INFO Runner] RunAsync
+[2022-09-05 07:50:55Z INFO ConfigurationManager] LoadSettings
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured()
+[2022-09-05 07:50:55Z INFO ConfigurationStore] IsConfigured: True
+[2022-09-05 07:50:55Z INFO ConfigurationManager] Is configured: True
+[2022-09-05 07:50:55Z INFO ConfigurationManager] Settings Loaded
+[2022-09-05 07:50:55Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "ubuntupr",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/wFr44QatRczz1iYGfPSOv8Dpj9PMrLFo0lk6MSHAMLkrjsn24s",
+  "GitHubUrl": "https://github.com/amuzhichenko/2test2",
+  "WorkFolder": "_work"
+}
+[2022-09-05 07:50:55Z INFO MessageListener] Loading Credentials
+[2022-09-05 07:50:55Z INFO ConfigurationStore] HasCredentials()
+[2022-09-05 07:50:55Z INFO ConfigurationStore] stored True
+[2022-09-05 07:50:55Z INFO CredentialManager] GetCredentialProvider
+[2022-09-05 07:50:55Z INFO CredentialManager] Creating type OAuth
+[2022-09-05 07:50:55Z INFO CredentialManager] Creating credential type: OAuth
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Bin': '/home/alex/gitops/2test2/actions-runner/bin'
+[2022-09-05 07:50:55Z INFO HostContext] Well known directory 'Root': '/home/alex/gitops/2test2/actions-runner'
+[2022-09-05 07:50:55Z INFO HostContext] Well known config file 'RSACredentials': '/home/alex/gitops/2test2/actions-runner/.credentials_rsaparams'
+[2022-09-05 07:50:55Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 07:50:55Z INFO MessageListener] Attempt to create session.
+[2022-09-05 07:50:55Z INFO MessageListener] Connecting to the Runner Server...
+[2022-09-05 07:50:55Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2022-09-05 07:50:55Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-09-05 07:50:55Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-09-05 07:50:55Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-09-05 07:50:55Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-09-05 07:50:55Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-09-05 07:50:56Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-09-05 07:50:56Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-09-05 07:50:56Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-09-05 07:50:56Z INFO MessageListener] VssConnection created
+[2022-09-05 07:50:56Z INFO Terminal] WRITE LINE: 
+[2022-09-05 07:50:56Z INFO Terminal] WRITE LINE: 
+[2022-09-05 07:50:56Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 07:50:56Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/alex/gitops/2test2/actions-runner/.credentials_rsaparams
+[2022-09-05 07:50:57Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-09-05 07:50:57Z INFO MessageListener] Session created.
+[2022-09-05 07:50:57Z INFO Terminal] WRITE LINE: Current runner version: '2.296.1'
+[2022-09-05 07:50:57Z INFO Terminal] WRITE LINE: 2022-09-05 07:50:57Z: Listening for Jobs
+[2022-09-05 07:50:57Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
